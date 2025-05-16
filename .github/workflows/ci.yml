@@ -20,7 +20,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: html-file
-          path: ./index.html
+          path: ./example.txt
 
   deploy:
     needs: build
@@ -30,10 +30,10 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: html-file
-          path: ./html
+          path: ./txt
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.key }}
-          publish_dir: ./html
+          publish_dir: ./txt
